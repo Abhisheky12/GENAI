@@ -1,7 +1,6 @@
 
-//in this we are maintaining history manually
 
-
+//in this model is maitaining previous history automatically 
 
 import { GoogleGenAI } from "@google/genai";
 import readlineSync from "readline-sync";
