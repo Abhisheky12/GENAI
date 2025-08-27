@@ -84,7 +84,8 @@ async function runAgent(userProblem) {
             model: "gemini-2.5-flash",
             contents: History,
             config: {
-                tools: [{ functionDeclaration: [sumDeclaration, primeDeclaration, cryptoDeclaration] }]
+                systemInstruction:"you are ai agent ,you have access of 3 available tools ,use these tools whenever required to confirm user query. if user ask genral question then answer in your own way if tools are not required ",
+                tools: [{ functionDeclarations: [sumDeclaration, primeDeclaration, cryptoDeclaration] }]
             }
         });
 
@@ -126,3 +127,27 @@ async function main() {
 }
 
 await main();
+
+
+
+
+
+
+
+//working
+
+// > User: sum of 2 and 4 and 7 is prime or not
+// >> Sent to LLM with tool schemas
+
+// < LLM: functionCall sum args '{"num1":2,"num2":4}'
+// Console: Function call: sum { num1:2, num2:4 }
+// Console: Sum result: 6
+// >> Send functionResponse (sum -> 6) back to LLM
+
+// < LLM: functionCall prime args '{"num":7}'
+// Console: Function call: prime { num:7 }
+// Console: Prime result: true
+// >> Send functionResponse (prime -> true) back to LLM
+
+// < LLM: final text "Sum of 2 and 4 is 6. 7 is prime."
+// Console: Sum of 2 and 4 is 6. 7 is prime.
