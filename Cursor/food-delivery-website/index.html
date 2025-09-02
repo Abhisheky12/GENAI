@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>FoodDelivery</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <h2>Delicious Food, Delivered to Your Door</h2>
+            <p>Order from your favorite local restaurants.</p>
+            <button onclick="location.href='restaurants.html'">Order Now</button>
+        </section>
+
+        <section id="featured-restaurants">
+            <h2>Featured Restaurants</h2>
+            <div class="restaurant-list">
+                <!-- Restaurant cards will go here -->
+                <div class="restaurant-card">
+                    <h3>Restaurant A</h3>
+                    <p>Cuisine: Italian</p>
+                    <button>View Menu</button>
+                </div>
+                <div class="restaurant-card">
+                    <h3>Restaurant B</h3>
+                    <p>Cuisine: Mexican</p>
+                    <button>View Menu</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 FoodDelivery. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

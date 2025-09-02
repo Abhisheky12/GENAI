@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>FoodDelivery</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="restaurant-menu">
+            <h2 id="restaurant-name"></h2>
+            <div id="menu-items" class="menu-grid">
+                <!-- Menu items will be dynamically loaded here -->
+                <div class="menu-item-card">
+                    <h3>Margherita Pizza</h3>
+                    <p>Classic pizza with tomato and mozzarella.</p>
+                    <p class="price">$12.99</p>
+                    <button class="add-to-cart" data-item-id="pizza-margherita" data-item-name="Margherita Pizza" data-item-price="12.99">Add to Cart</button>
+                </div>
+                <div class="menu-item-card">
+                    <h3>Pepperoni Pizza</h3>
+                    <p>Pizza with spicy pepperoni and cheese.</p>
+                    <p class="price">$14.50</p>
+                    <button class="add-to-cart" data-item-id="pizza-pepperoni" data-item-name="Pepperoni Pizza" data-item-price="14.50">Add to Cart</button>
+                </div>
+                <div class="menu-item-card">
+                    <h3>Veggie Burger</h3>
+                    <p>Delicious plant-based burger with fresh toppings.</p>
+                    <p class="price">$10.00</p>
+                    <button class="add-to-cart" data-item-id="burger-veggie" data-item-name="Veggie Burger" data-item-price="10.00">Add to Cart</button>
+                </div>
+                <div class="menu-item-card">
+                    <h3>Classic Cheeseburger</h3>
+                    <p>Juicy beef patty with cheese, lettuce, and tomato.</p>
+                    <p class="price">$11.50</p>
+                    <button class="add-to-cart" data-item-id="burger-cheeseburger" data-item-name="Classic Cheeseburger" data-item-price="11.50">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 FoodDelivery. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

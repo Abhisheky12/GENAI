@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants - Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>FoodDelivery</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="restaurant-listing">
+            <h2>Our Restaurants</h2>
+            <div class="restaurant-grid">
+                <!-- Restaurant cards will be dynamically loaded or hardcoded here -->
+                <div class="restaurant-card">
+                    <h3>Pizza Palace</h3>
+                    <p>Cuisine: Italian, Pizza</p>
+                    <p>Rating: 4.5/5</p>
+                    <button onclick="location.href='menu.html?restaurant=pizza-palace'">View Menu</button>
+                </div>
+                <div class="restaurant-card">
+                    <h3>Burger Bonanza</h3>
+                    <p>Cuisine: American, Burgers</p>
+                    <p>Rating: 4.2/5</p>
+                    <button onclick="location.href='menu.html?restaurant=burger-bonanza'">View Menu</button>
+                </div>
+                <div class="restaurant-card">
+                    <h3>Sushi Spot</h3>
+                    <p>Cuisine: Japanese, Sushi</p>
+                    <p>Rating: 4.8/5</p>
+                    <button onclick="location.href='menu.html?restaurant=sushi-spot'">View Menu</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 FoodDelivery. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

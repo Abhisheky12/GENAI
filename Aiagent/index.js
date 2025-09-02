@@ -19,12 +19,38 @@ async function prime({ num }) {
     return true;
 }
 
-// Get crypto price (mock function here)
+
+// Get crypto price (real API call)
 async function getCryptoPrice({ coin }) {
-    // You can call a real API here
-    const mockPrices = { bitcoin: 30000, ethereum: 2000, dogecoin: 0.07 };
-    return mockPrices[coin.toLowerCase()] || "Coin not found";
+    try {
+        const res = await fetch(
+            `https://api.coingecko.com/api/v3/simple/price?ids=${coin.toLowerCase()}&vs_currencies=usd`
+        );
+        const data = await res.json();
+
+        if (data[coin.toLowerCase()]) {
+            return `$${data[coin.toLowerCase()].usd}`;
+        } else {
+            return "Coin not found";
+        }
+    } catch (err) {
+        return "Error fetching price";
+    }
 }
+
+
+async function getJoke() {
+    try {
+        const res = await fetch("https://official-joke-api.appspot.com/random_joke");
+        const data = await res.json();
+
+        return `${data.setup} — ${data.punchline}`;
+    } catch (err) {
+        return "Error fetching joke";
+    }
+}
+
+
 
 // ---------------- Tool Declarations ----------------
 
@@ -64,12 +90,22 @@ const cryptoDeclaration = {
         required: ["coin"]
     }
 };
+const JokeDeclaration = {
+    name: "getJoke",
+    description: "Get the jokes for me ",
+    parameters: {
+        type: "OBJECT",
+        properties: {}, // no arguments needed
+        required: []
+    }
+}
 
 // ---------------- Available Tools ----------------
 const availableTools = {
     sum: sum,
     prime: prime,
-    getCryptoPrice: getCryptoPrice
+    getCryptoPrice: getCryptoPrice,
+    getJoke: getJoke
 };
 
 // ---------------- History ----------------
@@ -84,34 +120,31 @@ async function runAgent(userProblem) {
             model: "gemini-2.5-flash",
             contents: History,
             config: {
-                systemInstruction:"you are ai agent ,you have access of 3 available tools ,use these tools whenever required to confirm user query. if user ask genral question then answer in your own way if tools are not required ",
-                tools: [{ functionDeclarations: [sumDeclaration, primeDeclaration, cryptoDeclaration] }]
+                systemInstruction: "you are ai agent ,you have access of 3 available tools ,use these tools whenever required to confirm user query. if user ask genral question then answer in your own way if tools are not required ",
+                tools: [{ functionDeclarations: [sumDeclaration, primeDeclaration, cryptoDeclaration, JokeDeclaration] }]
             }
         });
 
         if (response.functionCalls && response.functionCalls.length > 0) {
-           
-           console.log(response.functionCalls[0]);
-           
-            const { name, args } = response.functionCalls[0];
+            for (const call of response.functionCalls) {
+                const { name, args } = call;
+                const tool = availableTools[name];
+                const result = await tool(args);
 
-            const funCall = availableTools[name];
-            const result = await funCall(args);
+                const functionResponsePart = { name, response: { result } };
 
-            const functionResponsePart = { name, response: { result } };
+                History.push({
+                    role: "model",
+                    parts: [{ functionCall: call }]
+                });
 
-            // Maintain model history
-            History.push({
-                role: "model",
-                parts: [{ functionCall: response.functionCalls[0] }]
-            });
-
-            // Maintain function response history
-            History.push({
-                role: "user",
-                parts: [{ functionResponse: functionResponsePart }]
-            });
-        } else {
+                History.push({
+                    role: "user",
+                    parts: [{ functionResponse: functionResponsePart }]
+                });
+            }
+        }
+        else {
             History.push({ role: "model", parts: [{ text: response.text }] });
             console.log(response.text);
             break;

@@ -1,0 +1,329 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px 0;
+}
+
+/* Hero Section */
+#hero {
+    background-color: #e2f0cb;
+    text-align: center;
+    padding: 4em 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+#hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#hero button {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#hero button:hover {
+    background-color: #e65c00;
+}
+
+/* Featured Restaurants */
+#featured-restaurants {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0 20px;
+}
+
+#featured-restaurants h2,
+#restaurant-listing h2,
+#restaurant-menu h2,
+#cart h2,
+#auth-form h2 {
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: #333;
+}
+
+.restaurant-list,
+.restaurant-grid,
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.restaurant-card,
+.menu-item-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.restaurant-card:hover,
+.menu-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.restaurant-card h3,
+.menu-item-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.restaurant-card p,
+.menu-item-card p {
+    color: #666;
+}
+
+.restaurant-card button,
+.menu-item-card .add-to-cart {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.restaurant-card button:hover,
+.menu-item-card .add-to-cart:hover {
+    background-color: #0056b3;
+}
+
+.menu-item-card .price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ff6600;
+    margin: 10px 0;
+}
+
+/* Cart Page */
+#cart {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#cart-items {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item span {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.cart-item .remove-from-cart {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item .remove-from-cart:hover {
+    background-color: #c82333;
+}
+
+#cart-summary {
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #ff6600;
+}
+
+#cart-summary p {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+}
+
+#cart-summary button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#cart-summary button:hover {
+    background-color: #218838;
+}
+
+#cart-summary button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Login/Signup Forms */
+#auth-form {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#auth-form h2 {
+    color: #333;
+    margin-bottom: 2em;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.form-container form {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.form-container form h3 {
+    text-align: center;
+    color: #ff6600;
+    margin-bottom: 1.5em;
+}
+
+.form-container form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-container form input[type="email"],
+.form-container form input[type="password"],
+.form-container form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-container form input[type="email"]:focus,
+.form-container form input[type="password"]:focus,
+.form-container form input[type="text"]:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+}
+
+.form-container form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container form button[type="submit"]:hover {
+    background-color: #e65c00;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5em 0;
+    margin-top: 3em;
+    width: 100%;
+}
