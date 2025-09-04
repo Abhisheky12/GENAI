@@ -6,7 +6,7 @@ import fs from "fs/promises"; // ✅ for writing inside files
 import os from "os";
 
 const platform = os.platform();
-const ai = new GoogleGenAI({ apiKey: "AIzaSyCPhjn2_kWm_X1IlakwwDLb3bLt4IqKr2w" });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyAcdljWLyVlWdxmNeUPD-JVw1sOEP2gHwE" });
 
 const asyncExecute = promisify(exec);
 
